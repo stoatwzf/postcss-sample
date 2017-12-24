@@ -1,0 +1,127 @@
+/*@import 'normalize.css/normalize.css';*/
+
+body {
+	font-family: "Indie Flower";
+}
+a {
+	@link-colors all #4D9Acc;
+}
+$color: #fff;
+$column_layout: 2;
+$social: 10px 15px 20px 25px;
+$icon: twitter, facebook, toutube;
+
+@media (max-width: 50rem){
+	.column_one, .column_two {
+		border: 0.0625rem solid #ccc;
+	}
+	.column_two {
+		border-top: 0;
+	}
+}
+@media (max-width: 50rem){
+	.column {
+		width: 100%;
+		float: none;
+	}
+}
+@keyframes widthAnimate {
+	from {
+		width: 0;
+	}
+	to {
+		width: 100%;
+	}
+}
+@define-mixin icon $network,$color {
+	.button.$(network) {
+		background-image: url('./images/$(network).png');
+		background-color: $color
+	}
+}
+@define-extend rounded_button {
+	border-radius: 0.5rem;
+	padding: 1em;
+	border-width: 0.0625rem;
+	border-style: solid;
+}
+
+
+
+
+.autoprefixer {
+	display: flex;
+}
+.cssnext {
+	background: rgba(0, 0, 0, .1);
+	opacity: 0.5;
+}
+.precss {
+	width: 50vmin;
+	font: 2rem Arial;
+	h1 {
+		color: red;
+	}
+}
+.animateThis {
+	will-change: animation;
+	animation: widthAnimate 2s;
+	height: 200px;
+	@if $column_layout == 3 {
+		background: color(red alpha(-10%));
+	} @else {
+		background: color(blue alpha(-10%));
+	}
+	
+	&::before {
+		content: 'world';
+		color: $color;
+	}
+}
+.box {
+	@for $i from 1 to 5 {
+		@each $co in ($social) {
+			p:nth-of-type($i){
+				margin:  $co;
+			}
+		}
+	}
+}
+@each $icon in ($icon) {
+	.icon-$(icon) {
+		background: url('./imag/$(icon).png');
+	}
+}
+
+@mixin icon twitter,blue;
+@mixin icon facebook, red;
+.bule_button {
+	@extend rounded_button;
+	background-color: blue;
+}
+.red_button {
+	@extend rounded_button;
+	background-color: red;
+}
+.circle {
+	circle: 8rem #c00;
+}
+.triangle {
+	triangle: pointing-right;
+	width: 7rem;
+	height: 8rem;
+	background-color: #c00;
+}
+.center-box {
+	position: relative;
+	height: 18rem;
+	background: red;
+}
+.aciddc {
+	left: center;
+	top: center;
+}
+
+
+
+

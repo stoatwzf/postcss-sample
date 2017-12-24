@@ -1,0 +1,6 @@
+@component SearchForm { 
+	padding: 0; 
+	margin: 0;
+	background: #fff;
+	@descendent textField { border: 1px solid #ccc; }
+}
